@@ -91,3 +91,82 @@ html,body{
     opacity: 0.7;
     color: var(--primary-text-color );
 }
+.addTripModal.show{
+    opacity: 1;
+    pointer-events: all;
+    scale: 1;
+    transform: translate(-50%, -50%);
+}
+.addTripModal{
+    pointer-events: none;
+    opacity: 0;
+    scale: 0.9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    transform: translate(-55%, -55%);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--navbar-bg);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+}
+.addTripModal h2{
+    font-size: 20px;
+    font-family: 'Questrial';
+    margin-bottom: 20px;
+}
+.modal-input{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.modal-input input{
+    background: none;
+    padding: 5px 14px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    outline: none;
+    z-index: 999;
+    flex: 1;
+}
+.modal-input label{
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    background: var(--navbar-bg);
+    font-size: 15px;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+.modal-input input:focus + label,
+.modal-input input:valid + label{
+    top: -14px;
+    left: 6px;
+    font-size: 14px;
+    padding: 2px;
+}
+.modal-btn{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.modal-btn button{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 6px;
+    font-size: 15px;
+    background-color: var(--button-color);
+    color: white;
+    border-radius: 5px;
+}
+.modal-btn .cancel-btn{
+    background: rgb(184, 4, 4);
+}
