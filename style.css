@@ -208,23 +208,23 @@ html,body{
     padding: 2rem 0;
 }
 .card{
+    position: relative;
     height: 160px;
     border-radius: 5px;
     background: var(--navbar-bg);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .cardTitle{
-    font-size: 18px;
+    font-size: 19px;
     opacity: 0.9;
-    margin-bottom: 5px;
 }
-.card i{
-    font-size: 22px;
+.Day-Date{
+    font-size: 15px;
+    opacity: 0.7;
 }
-.card p{
-    display: flex;
-    align-items: center;
+.viewPlans{
+    position: absolute;
+    bottom: 8px;
+    font-size: 15px;
+    opacity: 0.7;
 }
