@@ -113,7 +113,7 @@ html,body{
     text-align: center;
     font-family: 'Questrial';
     letter-spacing: 1px;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 .addTripPane .section{
     display: flex;
@@ -148,22 +148,30 @@ html,body{
 .addTripPane input[type="text"]:focus{
   border: 1px solid #007BFF;
 }
-
-.addTripPane .addTodo {
-  background-color: #205781;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 15px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 5px;
-  transition: background-color 0.2s ease;
+.tripPaneBtns{
+    display: flex;
+    gap: 10px;
 }
 
-.addTripPane .addTodo:hover {
-  background-color: #0056b3;
+.addTripPane .button {
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 15.5px;
+    width: 50%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+.cancelTodo{
+    background: #FF3F33;
+}
+.addTodo{
+    background-color: #205781;
+}
+.addTripPane .button:hover {
+    width: 60%;
 }
 
 .right-prt .task-text {
