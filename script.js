@@ -6,10 +6,12 @@ const backButton = document.querySelector('.backBtn');
 const tripsPane = document.querySelector('.tripsPane');
 const addTodoButton = document.querySelector('.addTodo');
 const clearTodoButton = document.querySelector('.clearTodo');
+const tripCards = document.querySelector('.tripCards');
+
 const tripData = [];
 
 window.addEventListener('load', () => {
-    if (tripData.length == 0) {
+    if (tripData.length === 0) {
         emptySlate.classList.remove('hide')
     }
 })
@@ -26,7 +28,11 @@ backButton.addEventListener('click', () => {
 });
 
 viewTripsPane.addEventListener('click', () => {
-    emptySlate.classList.add('hide');
+    if (tripData.length == 0) {
+        emptySlate.classList.add('hide')
+    }
+
+    emptySlate.classList.remove('hide');
     addTripPane.classList.remove('show');
     tripsPane.classList.add('show');
 });
@@ -63,6 +69,34 @@ addTodoButton.addEventListener('click', () => {
         }
         tripData.push(newTrip);
     }
+
+    // Creating and Storing Trip data in Cards
+    const Card = document.createElement('div')
+    Card.className = 'card'
+
+    const cardTitle = document.createElement('h3')
+    cardTitle.className = 'cardTitle'
+    cardTitle.textContent = tripTitle.value;
+
+    //Generating Today's Day and Date
+    const today = new Date();
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    const formattedDate = today.toLocaleDateString('en-US', options);
+
+    const dayDate = document.createElement('p');
+    dayDate.className = 'Day-Date';
+    dayDate.textContent = formattedDate;
+
+    const viewPlans = document.createElement('p');
+    viewPlans.className = 'viewPlans';
+    viewPlans.textContent = "Click to view your Plans";
+
+    Card.appendChild(cardTitle)
+    Card.appendChild(dayDate)
+    Card.appendChild(viewPlans)
+
+    tripCards.appendChild(Card);
 })
 clearTodoButton.addEventListener('click', () => {
     const taskList = document.querySelector('.tasks');
