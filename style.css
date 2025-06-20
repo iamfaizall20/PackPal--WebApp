@@ -69,13 +69,66 @@ html,body{
     display: grid;
     place-content: center;
 }
-
+/* --- Welcome Page --- */
+.welcomePage{
+    /* pointer-events: none; */
+    /* opacity: 0; */
+    position: absolute;
+    height: calc(100vh - 70px);
+    width: 100%;
+    padding: 4.5rem 15rem;
+    text-align: center;
+    animation: transform 0.7s ease;
+}
+.welcomePage h2{
+    font-size: 70px;
+    font-family: 'Questrial';
+    letter-spacing: 1px;
+}
+.welcomePage h3{
+    font-family: 'Questrial';
+    letter-spacing: 1px;
+    opacity: 0.7;
+    font-size: 23px;
+    margin: 2.5rem 9rem;
+}
+.welcomePage .features{
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+.features p{
+    background: chocolate;
+    padding: 8px 40px;
+    color: white;
+    border-radius: 30px;
+    font-size: 16.8px;
+}
+.features p:nth-child(1){
+    background-color: #F7374F;
+}
+.features p:nth-child(2){
+    background-color: #522546;
+}
+.features p:nth-child(3){
+    background-color: #E53888;
+}
+.getStarted{
+    font-family: 'Questrial';
+    font-weight: 650;
+    opacity: 0.6;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin: 3rem 0;
+}
 /* ---EmptySlate --- */
 .emptySlate.hide{
     visibility: hidden;
 }
 .emptySlate{
-    visibility: visible;
+    visibility: hidden;
     pointer-events: none;
     height: 300px;
     width: 400px;
@@ -109,7 +162,7 @@ html,body{
     width: 100%;
     padding: 2rem 6rem;
 }
-.addTripPane .backBtn{
+.backBtn{
     margin-left: 3.5rem;
     display: grid;
     place-content: center;

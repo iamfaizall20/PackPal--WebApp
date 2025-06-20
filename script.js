@@ -28,11 +28,12 @@ backButton.addEventListener('click', () => {
 });
 
 viewTripsPane.addEventListener('click', () => {
-    if (tripData.length == 0) {
-        emptySlate.classList.add('hide')
+    if (tripData.length === 0) {
+        emptySlate.classList.remove('hide')
+    } else {
+        emptySlate.classList.add('hide');
     }
 
-    emptySlate.classList.remove('hide');
     addTripPane.classList.remove('show');
     tripsPane.classList.add('show');
 });
