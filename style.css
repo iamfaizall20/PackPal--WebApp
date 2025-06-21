@@ -261,7 +261,7 @@ html,body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
-    padding: 2rem 0;
+    padding: 2rem 3rem;
 }
 .card{
     position: relative;
