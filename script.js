@@ -1,41 +1,62 @@
 const addTripBtn = document.querySelector('.addBtn');
-const emptySlate = document.querySelector('.emptySlate');
-const addTripPane = document.querySelector('.addTripPane');
+const backButton = document.querySelectorAll('.backBtn');
 const viewTripsPane = document.querySelector('.viewBtn');
-const backButton = document.querySelector('.backBtn');
-const tripsPane = document.querySelector('.tripsPane');
 const addTodoButton = document.querySelector('.addTodo');
 const clearTodoButton = document.querySelector('.clearTodo');
 const tripCards = document.querySelector('.tripCards');
 
+// Screens Pane
+const welcomePane = document.querySelector('.welcomePage');
+const emptySlate = document.querySelector('.emptySlate');
+const tripsPane = document.querySelector('.tripsPane');
+const addTripPane = document.querySelector('.addTripPane');
+
+// Array to store trip summaries as objects
 const tripData = [];
 
-window.addEventListener('load', () => {
-    if (tripData.length === 0) {
-        emptySlate.classList.remove('hide')
-    }
-})
-// Functions For Tabs 
-addTripBtn.addEventListener('click', () => {
-    addTripPane.classList.add('show');
-    emptySlate.classList.add('hide');
+// Utility: Hide all panes
+function hideAllPanes() {
+    welcomePane.classList.remove('show');
+    addTripPane.classList.remove('show');
     tripsPane.classList.remove('show');
+    emptySlate.classList.remove('show');
+}
+function showPaneWithAnimation(pane) {
+    pane.classList.add('show');
+
+    // Remove and re-add the animation class to force animation
+    pane.classList.remove('animate');
+    void pane.offsetWidth; // Trigger reflow
+    pane.classList.add('animate');
+}
+// Show Welcome pane on load
+window.addEventListener('DOMContentLoaded', () => {
+    hideAllPanes();
+    showPaneWithAnimation(welcomePane);
 });
 
-backButton.addEventListener('click', () => {
-    addTripPane.classList.remove('show');
-    tripsPane.classList.add('show');
+// Add Trip Button Click
+addTripBtn.addEventListener('click', () => {
+    hideAllPanes();
+    showPaneWithAnimation(addTripPane);
 });
 
+// Back Button Click (go back to Welcome)
+backButton.forEach(button => {
+    button.addEventListener('click', () => {
+        hideAllPanes();
+        showPaneWithAnimation(welcomePane);
+    })
+});
+
+// View Trips Click
 viewTripsPane.addEventListener('click', () => {
+    hideAllPanes();
     if (tripData.length === 0) {
-        emptySlate.classList.remove('hide')
+        showPaneWithAnimation(emptySlate);
     } else {
-        emptySlate.classList.add('hide');
+        showPaneWithAnimation(tripsPane);
     }
-
-    addTripPane.classList.remove('show');
-    tripsPane.classList.add('show');
 });
 
 // Add Trip Button => Adds Data is Card,Array and TasksList

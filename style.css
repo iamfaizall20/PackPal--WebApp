@@ -70,15 +70,21 @@ html,body{
     place-content: center;
 }
 /* --- Welcome Page --- */
+.animate{
+    animation: transform 0.7s ease;
+}
+.welcomePage.show{
+    opacity: 1;
+    pointer-events: all;
+}
 .welcomePage{
-    /* pointer-events: none; */
-    /* opacity: 0; */
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     height: calc(100vh - 70px);
     width: 100%;
     padding: 4.5rem 15rem;
     text-align: center;
-    animation: transform 0.7s ease;
 }
 .welcomePage h2{
     font-size: 70px;
@@ -124,15 +130,14 @@ html,body{
     margin: 3rem 0;
 }
 /* ---EmptySlate --- */
-.emptySlate.hide{
-    visibility: hidden;
+.emptySlate.show{
+    visibility: visible;
 }
 .emptySlate{
     visibility: hidden;
     pointer-events: none;
     height: 300px;
     width: 400px;
-    animation: transform 0.7s ease;
 }
 .emptySlate .image-prt{
     height: 80%;
@@ -152,7 +157,6 @@ html,body{
 .addTripPane.show,.tripsPane.show{
     opacity: 1;
     pointer-events: all;
-    animation: transform 0.5s ease;
 }
 .addTripPane,.tripsPane{
     pointer-events: none;
@@ -163,7 +167,7 @@ html,body{
     padding: 2rem 6rem;
 }
 .backBtn{
-    margin-left: 3.5rem;
+    margin-left: 3rem;
     display: grid;
     place-content: center;
     font-size: 16px;
