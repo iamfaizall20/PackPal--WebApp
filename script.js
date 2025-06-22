@@ -14,6 +14,7 @@ const viewTripDetailsPane = document.querySelector('.viewTripDetails');
 
 // Array to store trip summaries as objects
 const tripData = [];
+let currentTripIndex = null;
 
 // Utility: Hide all panes
 function hideAllPanes() {
@@ -128,9 +129,26 @@ addTodoButton.addEventListener('click', () => {
         Card.addEventListener('click', () => {
             hideAllPanes();
             showPaneWithAnimation(viewTripDetailsPane);
+
+            //add Data to Card
+            const cards = document.querySelectorAll('.card');
+            const index = Array.from(cards).indexOf(Card);
+            currentTripIndex = index;
+            const selectedCard = tripData[index];
+
+            const tripName = document.querySelector('.tripName');
+            tripName.textContent = selectedCard.Title;
+
+            const checklist = document.querySelector('.checklist');
+            checklist.innerHTML = '';
+
+            selectedCard.checkLists.forEach(item => {
+                const li = document.createElement('li')
+                li.textContent = item;
+
+                checklist.appendChild(li);
+            })
         });
-    } else {
-        alert("Same Trip Title")
     }
 })
 clearTodoButton.addEventListener('click', () => {
@@ -143,3 +161,13 @@ document.querySelector('.addTripDetails').addEventListener('click', () => {
     hideAllPanes();
     showPaneWithAnimation(addTripPane);
 })
+document.querySelector('.deleteTripDetails').addEventListener('click', () => {
+    if (currentTripIndex !== null) {
+        const cards = document.querySelectorAll('.card');
+        tripData.splice(currentTripIndex, 1);
+        if (cards[currentTripIndex]) cards[currentTripIndex].remove();
+        currentTripIndex = null;
+        hideAllPanes();
+        showPaneWithAnimation(welcomePane);
+    }
+});
