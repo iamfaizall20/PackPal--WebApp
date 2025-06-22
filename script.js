@@ -10,6 +10,7 @@ const welcomePane = document.querySelector('.welcomePage');
 const emptySlate = document.querySelector('.emptySlate');
 const tripsPane = document.querySelector('.tripsPane');
 const addTripPane = document.querySelector('.addTripPane');
+const viewTripDetailsPane = document.querySelector('.viewTripDetails');
 
 // Array to store trip summaries as objects
 const tripData = [];
@@ -20,6 +21,7 @@ function hideAllPanes() {
     addTripPane.classList.remove('show');
     tripsPane.classList.remove('show');
     emptySlate.classList.remove('show');
+    viewTripDetailsPane.classList.remove('show');
 }
 function showPaneWithAnimation(pane) {
     pane.classList.add('show');
@@ -121,6 +123,12 @@ addTodoButton.addEventListener('click', () => {
         Card.appendChild(viewPlans)
 
         tripCards.appendChild(Card);
+
+        //View Trip Details
+        Card.addEventListener('click', () => {
+            hideAllPanes();
+            showPaneWithAnimation(viewTripDetailsPane);
+        });
     } else {
         alert("Same Trip Title")
     }
