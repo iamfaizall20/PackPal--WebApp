@@ -93,32 +93,37 @@ addTodoButton.addEventListener('click', () => {
     }
 
     // Creating and Storing Trip data in Cards
-    const Card = document.createElement('div')
-    Card.className = 'card'
+    if (!existingTrip) {
 
-    const cardTitle = document.createElement('h3')
-    cardTitle.className = 'cardTitle'
-    cardTitle.textContent = tripTitle.value;
+        const Card = document.createElement('div')
+        Card.className = 'card'
 
-    //Generating Today's Day and Date
-    const today = new Date();
+        const cardTitle = document.createElement('h3')
+        cardTitle.className = 'cardTitle'
+        cardTitle.textContent = tripTitle.value;
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-    const formattedDate = today.toLocaleDateString('en-US', options);
+        //Generating Today's Day and Date
+        const today = new Date();
 
-    const dayDate = document.createElement('p');
-    dayDate.className = 'Day-Date';
-    dayDate.textContent = formattedDate;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+        const formattedDate = today.toLocaleDateString('en-US', options);
 
-    const viewPlans = document.createElement('p');
-    viewPlans.className = 'viewPlans';
-    viewPlans.textContent = "Click to view your Plans";
+        const dayDate = document.createElement('p');
+        dayDate.className = 'Day-Date';
+        dayDate.textContent = formattedDate;
 
-    Card.appendChild(cardTitle)
-    Card.appendChild(dayDate)
-    Card.appendChild(viewPlans)
+        const viewPlans = document.createElement('p');
+        viewPlans.className = 'viewPlans';
+        viewPlans.textContent = "Click to view your Plans";
 
-    tripCards.appendChild(Card);
+        Card.appendChild(cardTitle)
+        Card.appendChild(dayDate)
+        Card.appendChild(viewPlans)
+
+        tripCards.appendChild(Card);
+    } else {
+        alert("Same Trip Title")
+    }
 })
 clearTodoButton.addEventListener('click', () => {
     const taskList = document.querySelector('.tasks');
