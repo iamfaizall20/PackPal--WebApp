@@ -312,6 +312,7 @@ html,body{
     font-size: 15.5px;
     border-radius: 5px;
     margin: 5px 0;
+    cursor: pointer;
 }
 .tripTitleSection button:nth-child(3){
     background: rgb(228, 2, 2);

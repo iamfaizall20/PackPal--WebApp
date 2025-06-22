@@ -139,4 +139,7 @@ clearTodoButton.addEventListener('click', () => {
     taskList.innerHTML = ''
 
 })
-
+document.querySelector('.addTripDetails').addEventListener('click', () => {
+    hideAllPanes();
+    showPaneWithAnimation(addTripPane);
+})
