@@ -331,7 +331,7 @@ html,body{
         height: 95px;
     }
     .navbar button{
-        padding: 5px 12px;
+        padding: 5.5px 12px;
         margin: 3px 0;
         
         &:hover{
@@ -342,13 +342,13 @@ html,body{
         height: calc(100svh - 95px);
     }
     .welcomePage{
-        padding: 3rem 1.5rem;
+        padding: 2.5rem 1rem;
     }
     .welcomePage h2{
-        font-size: 40px;
+        font-size: 38px;
     }
     .welcomePage h3{
-        font-size: 22px;
+        font-size: 21px;
         margin: 2rem 0;
     }
     .features{
@@ -363,7 +363,7 @@ html,body{
         padding: 2rem;
     }
     .backBtn{
-        margin-left: 0.5rem;
+        margin-left: 0.2rem;
     }
     .section{
         display: flex;
@@ -372,5 +372,22 @@ html,body{
     .left-prt,.right-prt{
         width: 100%;
         height: 50%;
+    }
+    .tripCards{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        padding: 2rem 0;
+        gap: 10px;
+    }
+    .card{
+        height: 140px;
+    }
+    .tripDetails{
+        display: flex;
+        flex-direction: column;
+    }
+    .tripTitleSection,.tripChecklistsSection{
+        width: 100%;
+        padding: 2rem 0;
     }
 }
